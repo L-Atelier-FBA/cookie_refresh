@@ -38,7 +38,7 @@ jobs:
           PASSWORD: ${{ secrets.PASSWORD }}
           PROXY: ${{ secrets.PROXY }}
         run: |
-          python refresh.py
+          xvfb-run python refresh.py
 
       - name: Commit and push cookies.json
         run: |
