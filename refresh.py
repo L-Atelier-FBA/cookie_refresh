@@ -22,7 +22,7 @@ EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("PASSWORD")
 PROXY = os.getenv("PROXY")
 HEADLESS = False
-REFRESH_SAS = False
+REFRESH_SAS = True
 
 
 def parse_proxy(proxy_str):
@@ -153,6 +153,8 @@ def fetch_sas_cookies(playwright):
         page.click("button[type='submit']")
 
         page.wait_for_load_state("load")
+        
+        time.sleep(15)
 
         cookies = context.cookies()
         logging.info("SAS cookies acquired")
