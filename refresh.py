@@ -21,7 +21,8 @@ SAS_LOGIN_URL = "https://sas.selleramp.com/site/login"
 EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("PASSWORD")
 PROXY = os.getenv("PROXY")
-HEADLESS = True
+HEADLESS = False
+REFRESH_SAS = True
 
 
 def parse_proxy(proxy_str):
@@ -43,7 +44,7 @@ def parse_proxy(proxy_str):
         return None
 
 
-proxy_config = parse_proxy(PROXY)
+proxy_config = parse_proxy(str(PROXY))
 
 
 def launch_browser(playwright):
@@ -65,12 +66,28 @@ def create_context(browser):
             "height": random.randint(800, 1080)
         },
         user_agent=f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                   f"(KHTML, like Gecko) Chrome/{random.randint(100,120)}.0.0.0 Safari/537.36"
+                   f"(KHTML, like Gecko) Chrome/{random.randint(100, 120)}.0.0.0 Safari/537.36"
     )
 
 
 def cookies_to_string(cookies):
     return "; ".join(f"{c['name']}={c['value']}" for c in cookies)
+
+
+def load_existing_cookies(path="cookies.json"):
+    if os.path.exists(path):
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as e:
+            logging.warning(f"Failed to load existing cookies: {e}")
+            return {}
+    return {}
+
+
+def save_cookies(data, path="cookies.json"):
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=4)
 
 
 def fetch_amazon_cookies(playwright, query, max_retries=5):
@@ -85,12 +102,12 @@ def fetch_amazon_cookies(playwright, query, max_retries=5):
             page = context.new_page()
 
             page.goto(AMAZON_URL, timeout=60000)
-            page.wait_for_load_state("domcontentloaded")
+            page.wait_for_load_state("load")
 
             time.sleep(random.uniform(2, 4))
 
             page.goto(f"https://www.amazon.fr/s?k={encoded_query}", timeout=60000)
-            page.wait_for_load_state("domcontentloaded")
+            page.wait_for_load_state("load")
 
             time.sleep(random.uniform(3, 6))
 
@@ -113,7 +130,7 @@ def fetch_amazon_cookies(playwright, query, max_retries=5):
         time.sleep(random.uniform(3, 6))
 
     raise RuntimeError("Failed to retrieve Amazon cookies")
-    
+
 
 def fetch_sas_cookies(playwright):
     if not EMAIL or not PASSWORD:
@@ -135,7 +152,7 @@ def fetch_sas_cookies(playwright):
         time.sleep(1)
         page.click("button[type='submit']")
 
-        page.wait_for_load_state("networkidle")
+        page.wait_for_load_state("load")
 
         cookies = context.cookies()
         logging.info("SAS cookies acquired")
@@ -150,18 +167,20 @@ def fetch_sas_cookies(playwright):
 
 
 def main():
-    cookie_sets = {}
+    cookie_sets = load_existing_cookies()
 
     with sync_playwright() as playwright:
-        for i in range(1, 11):
-            query = f"Test {random.randint(1, 999999)}"
+        for i in range(1, 5):
+            query = f"Jeux {random.randint(1, 999999)}"
             cookie_sets[f"amazon{i}"] = fetch_amazon_cookies(playwright, query)
 
-        cookie_sets["sas"] = fetch_sas_cookies(playwright)
+        if REFRESH_SAS or "sas" not in cookie_sets:
+            logging.info("Refreshing SAS cookies")
+            cookie_sets["sas"] = fetch_sas_cookies(playwright)
+        else:
+            logging.info("Keeping existing SAS cookies")
 
-    with open("cookies.json", "w", encoding="utf-8") as f:
-        json.dump(cookie_sets, f, indent=4)
-
+    save_cookies(cookie_sets)
     logging.info("Cookies saved to cookies.json")
 
 
