@@ -22,7 +22,7 @@ EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("PASSWORD")
 PROXY = os.getenv("PROXY")
 HEADLESS = False
-REFRESH_SAS = True
+REFRESH_SAS = False
 
 
 def parse_proxy(proxy_str):
