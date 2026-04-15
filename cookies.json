@@ -1,1 +1,99 @@
-{}
+{
+    "amazon1": "aws-waf-token=9a9cd9ff-82a1-4faa-b52c-80951ef252ac:BgoAucRqYt9DAAAA:kSMS42OjiWPbdgbSy0X0zeK83E8Nzyrzfyk1C4n03Mfz6mbGu3lIB0K1RmAx5CfpJVntSAh7BVRZeisB+RFyS0iv+FzJF2tK7jgIypMmiLWLiZwkmcZNv/sxyAn+Fy4SSJPmiPznZSnxSmzQN4Zx3Yjumyt99ubyW7HyDqqfwkZLrScWGfWN+Vmhwt9urNmA; session-id=521-6452069-9944011; session-id-time=2082787201l; i18n-prefs=EUR; lc-acbfr=en_GB; ubid-acbfr=257-9919285-3914659; csm-hit=tb:s-CGDD36WMN19VE99Q54T6|1776266370755&t:1776266371886&adb:adblk_no; session-token=3zj3lb1zFoRtVVD5VVsbYI3csTICAnbptiEvI4FFNAsQ7Bueko9ZFR3epkH3ZpyfOS/W3Xo9inj1gIc2/lFm+tmuXKoAfzTlfq5xbXFOC1atWbZ6O6dg/sgPki3G5QxDLP+rHG6+57yf2XysYqzXeKrUbFk/q5U7L9Tz/cyQt39Z1SrRW3WVYdQiodlqNwZ/B4cYkfXaox5uMMJx0peVZfL87FLvmv+U; ad-privacy=0; rxc=ALjSbD2UaB2PrWQZoK0",
+    "amazon2": "aws-waf-token=4f164e71-29cd-4576-af37-220cc3d8b9af:EgoAbF9qt0f2AAAA:2VYHhov0tfP+UGYauBRK4fvbGhA81/ArfR5MuKhUdZIvL9V8i0MGLAEdu75GiFMoVc0fPP+QtzVEod4y77p39beQoCkA5Edo107I9gh4eDkioYhzsNgXnTn/HFcZO8U5sEhnLmgtKZ6wA5otTf+7xti0fwjv3Rscv5nkW3a3z0PEQIaznUscwRkH3wEw7S1d; session-id=525-5964892-0999216; session-id-time=2082787201l; i18n-prefs=EUR; lc-acbfr=en_GB; ubid-acbfr=522-8718670-4916366; csm-hit=tb:s-ZY6JTFBD7NHB9GPS92S4|1776266402183&t:1776266402866&adb:adblk_yes; session-token=otAY6C0vJ3+fiP0ErDbZT6O089DrqYTeN5CxKSDVRe8oIObqKwBO5Rwf7/GybXXooB6NnbPMW48K6aE7JPgsFqtor0pFEsEnB8QuPFqcJBatNJfUbiomV4huYSFuBfxRBOB1USdod9O4HxHUse3P+gzcOem1RqO4kz6ft9b1Kob3n/Da9poQlIXcMEJd7hJCoCRqym6RPdPlZ47qp8YUjWnKrAAYyVqi; rxc=ACo3JrC8q7segnN8FB8; ad-privacy=0",
+    "amazon3": "aws-waf-token=d1e914d6-d707-468f-b1ce-d8355684caac:EQoAhvFqIgNCAAAA:iiB9SDrE5qbRBK0xL5yzFRAuLBYNoW+WTvXp+xDzkTNJTaC1uQKuWPXlLJYFHX6EYUtiXVB/X3iuME3iVu8ylPNnBpvNh0jgDpT6IlNrRMIIT8bVVWfp/fA5C2nKPaK/WW5+oz3r9t453NGqD7t8DweQ7NCr9Kx6pvqQrb02dgQBl8ofq9Jh21Z1U8XyKOjX; session-id=521-1407272-4425501; session-id-time=2082787201l; i18n-prefs=EUR; lc-acbfr=en_GB; ubid-acbfr=522-7720056-5193415; csm-hit=tb:s-9R614HBWSCNFZ33AQS43|1776266414763&t:1776266415363&adb:adblk_no; session-token=LONqXWkgxfI5u+r3yAJS8wlx74YDpdn2OL11aiZecROo1jqpwLyVy48jPRXiiswwjusmwgvN2D+M3FD6LnyTZDh+rxSExGoCpzYojfeIXBBYxE1ZNqfD4iewWBaYiEJ1K7tme89dautYZ2MTqALKB3yIIexRZlvmF6FNBq5HxdrIf/Wcy82Nu86igAJlWTSjwdX6BHT251hpmTyj1JfF7jRpkndtxrQN; ad-privacy=0; rxc=AKRA5B2RVYy2mHMg2Bs",
+    "amazon4": "aws-waf-token=4f164e71-29cd-4576-af37-220cc3d8b9af:EgoAn+dqadBCAQAA:l34aM9cSKMVNZr3vIiS1ay9K+0LS+lmWk80uCIkzI5Q71J3Dqg4IfV54nVtqNa60XzFLQCfpOTt83AwcLd53L4316NuiV5BlR4T/Zgb3brl9OGBCFotArMbnlOb28MgcdYHsEtqK9/mki+4IzrKduNUjWHgm3NalMaX3s5fimtmPvN6xHSauSmp7Fofv6eF/; session-id=524-4622291-2540520; session-id-time=2082787201l; i18n-prefs=EUR; lc-acbfr=en_GB; ubid-acbfr=524-5511097-3405618; csm-hit=tb:s-PW2PG49V7F8K8XZNVC4M|1776266428121&t:1776266428951&adb:adblk_no; session-token=EVhFFkaqDX3ecNeOptKrWMVvQpj7Re2I4vZH+D0DbB7dSORzMf8vN49Pfe1hbl/r4lJuIeqaIObVYy2FKlEThV0K1JBNF7f91qVBoOOI2/L2gX12Jb+8TU6hdeFTrLjpM6WZJytki1wKo/ORIp+vjIpJ4oqnC72ovGDxcTszgXIQJpsZayvvjVNhQLlBOqv7+tKt2TzV5U4rFjSiBzOCIxuxFH2sqEIV; ad-privacy=0; rxc=ABU7WEj2qU0yguU/cIA",
+    "amazon5": "aws-waf-token=742f0ea0-ceea-42f6-b8fd-1c8f263c57f3:FAoAaKFrSaA2AAAA:F+engYQc8TuvuuT+jt1g3+Urz7q34op48Q6/UHHTsK0vv6dE4vflbiMKtZ5skXdGlJ397yblp6Enf1F5osa99tMY72M4x9fVCsDj5AG3L+tzp1Vc1OH10mnsDVdwrDyAF85oyQyJUNN3VNZkKwUM7EiDkRKE3M9frJdHDRMOAEEzbJ9WpRstWUELTq3g+mq8; session-id=522-3283122-0965946; session-id-time=2082787201l; i18n-prefs=EUR; lc-acbfr=en_GB; csm-hit=tb:s-N5T0VKA7S14AJNCDPC57|1776266439147&t:1776266439936&adb:adblk_no",
+    "sas": [
+        {
+            "name": "wukn",
+            "value": "50951a1951daf4c31c3a2ec8c83fc1ea6ee8df78731083318d2f0d270ee5fba7a%3A2%3A%7Bi%3A0%3Bs%3A4%3A%22wukn%22%3Bi%3A1%3Bs%3A36%3A%22b63eaea6-9e37-421c-bd90-202b1b02d871%22%3B%7D",
+            "domain": "sas.selleramp.com",
+            "path": "/",
+            "expires": -1,
+            "httpOnly": true,
+            "secure": true,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "_ga",
+            "value": "GA1.1.1792196331.1776266448",
+            "domain": ".selleramp.com",
+            "path": "/",
+            "expires": 1810826451.576692,
+            "httpOnly": false,
+            "secure": false,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "_iidt",
+            "value": "jixRA/VCRwmc1NZG31BmVtUPe/Yj6diGNO+Q/Ik9Df44HyvGHOOyEOGG4ypbgztS8hwu0tPzzRVoig==",
+            "domain": ".selleramp.com",
+            "path": "/",
+            "expires": 1807802450.387603,
+            "httpOnly": true,
+            "secure": true,
+            "sameSite": "None"
+        },
+        {
+            "name": "_vid_t",
+            "value": "uD8YudZWEFRD8NjaB9+7SoLJ8OIZiJF7/pgYUMhfObY76BDoIQoFOp2BhzODQNUuL9x6RP8TDVLbKQ==",
+            "domain": ".selleramp.com",
+            "path": "/",
+            "expires": 1807802450,
+            "httpOnly": false,
+            "secure": false,
+            "sameSite": "Lax"
+        },
+        {
+            "name": "_fp",
+            "value": "LBsqi0KRscHRboeRE251",
+            "domain": "sas.selleramp.com",
+            "path": "/",
+            "expires": 1776352850.39316,
+            "httpOnly": false,
+            "secure": true,
+            "sameSite": "None"
+        },
+        {
+            "name": "advanced-sasend",
+            "value": "kgtrsgf3d5lkqee5k7eodv1787",
+            "domain": "sas.selleramp.com",
+            "path": "/",
+            "expires": -1,
+            "httpOnly": true,
+            "secure": true,
+            "sameSite": "None"
+        },
+        {
+            "name": "_identity-sasend",
+            "value": "c5f7cf361789827d1bef3a9563443c247ac13c9b0d42cffd5273080b99c0df7da%3A2%3A%7Bi%3A0%3Bs%3A16%3A%22_identity-sasend%22%3Bi%3A1%3Bs%3A51%3A%22%5B278267%2C%22Yu8V2iF7nj1ciqjfqE2SkQZtSsRBAfjd%22%2C2592000%5D%22%3B%7D",
+            "domain": "sas.selleramp.com",
+            "path": "/",
+            "expires": 1778858451.065674,
+            "httpOnly": true,
+            "secure": true,
+            "sameSite": "None"
+        },
+        {
+            "name": "_csrf-sasend",
+            "value": "75a5b6d04f75071bf52b967a46c2372234883535fc93d9827fcc28888d44dd02a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_csrf-sasend%22%3Bi%3A1%3Bs%3A32%3A%22obbraV48eJDEXSQLsNLvdHLxg-3GkjDD%22%3B%7D",
+            "domain": "sas.selleramp.com",
+            "path": "/",
+            "expires": -1,
+            "httpOnly": true,
+            "secure": true,
+            "sameSite": "None"
+        },
+        {
+            "name": "_ga_W98N3EP6JE",
+            "value": "GS2.1.s1776266448$o1$g1$t1776266451$j57$l0$h0",
+            "domain": ".selleramp.com",
+            "path": "/",
+            "expires": 1810826451.580844,
+            "httpOnly": false,
+            "secure": false,
+            "sameSite": "Lax"
+        }
+    ]
+}
