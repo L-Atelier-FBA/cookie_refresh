@@ -22,7 +22,7 @@ EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("PASSWORD")
 PROXY = os.getenv("PROXY")
 HEADLESS = False
-REFRESH_SAS = True
+REFRESH_SAS = False
 
 
 def parse_proxy(proxy_str):
@@ -170,7 +170,7 @@ def main():
     cookie_sets = load_existing_cookies()
 
     with sync_playwright() as playwright:
-        for i in range(1, 5):
+        for i in range(1, 6):
             query = f"Jeux {random.randint(1, 999999)}"
             cookie_sets[f"amazon{i}"] = fetch_amazon_cookies(playwright, query)
 
