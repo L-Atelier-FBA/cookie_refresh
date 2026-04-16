@@ -24,6 +24,19 @@ PROXY = os.getenv("PROXY")
 HEADLESS = False
 REFRESH_SAS = False
 
+REQUIRED_AMAZON_COOKIES = {
+    "session-id",
+    "session-id-time",
+    "i18n-prefs",
+    "lc-acbfr",
+    "ubid-acbfr",
+    "csm-hit",
+    "session-token",
+    "ad-privacy",
+    "rxc",
+    "aws-waf-token"
+}
+
 
 def parse_proxy(proxy_str):
     if not proxy_str:
@@ -90,6 +103,11 @@ def save_cookies(data, path="cookies.json"):
         json.dump(data, f, indent=4)
 
 
+def has_required_amazon_cookies(cookies):
+    cookie_names = {c["name"] for c in cookies}
+    return REQUIRED_AMAZON_COOKIES.issubset(cookie_names)
+
+
 def fetch_amazon_cookies(playwright, query, max_retries=5):
     encoded_query = quote_plus(query)
 
@@ -113,11 +131,9 @@ def fetch_amazon_cookies(playwright, query, max_retries=5):
 
             cookies = context.cookies()
 
-            if any(c["name"] == "aws-waf-token" for c in cookies):
+            if has_required_amazon_cookies(cookies):
                 logging.info("Amazon cookies acquired")
                 return cookies_to_string(cookies)
-
-            logging.warning("aws-waf-token not found")
 
         except PlaywrightTimeoutError:
             logging.warning("Amazon timeout, retrying...")
@@ -153,7 +169,7 @@ def fetch_sas_cookies(playwright):
         page.click("button[type='submit']")
 
         page.wait_for_load_state("load")
-        
+
         time.sleep(15)
 
         cookies = context.cookies()
