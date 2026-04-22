@@ -20,6 +20,19 @@ SELLER_URL = "https://sellercentral-europe.amazon.com/"
 PROXY = os.getenv("PROXY")
 HEADLESS = False
 
+REQUIRED_COOKIES = {
+    "aws-waf-token",
+    "session-id",
+    "session-id-time",
+    "i18n-prefs",
+    "lc-acbfr",
+    "ubid-acbfr",
+    "csm-hit",
+    "session-token",
+    "ad-privacy",
+    "rxc"
+}
+
 def parse_proxy(proxy_str):
     if not proxy_str:
         return None
@@ -77,7 +90,7 @@ def save_cookies(data, path="cookies.json"):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4)
 
-def fetch_amazon_cookies(playwright, query, max_retries=5):
+def fetch_amazon_cookies(playwright, query, max_retries=50):
     encoded_query = quote_plus(query)
 
     for attempt in range(1, max_retries + 1):
@@ -90,21 +103,31 @@ def fetch_amazon_cookies(playwright, query, max_retries=5):
 
             page.goto(AMAZON_URL, timeout=60000)
             page.wait_for_load_state("load")
+            time.sleep(random.uniform(2, 4))
 
+            page.mouse.move(random.randint(100, 500), random.randint(100, 500))
+            time.sleep(random.uniform(1, 2))
+            page.mouse.wheel(0, random.randint(300, 1000))
             time.sleep(random.uniform(2, 4))
 
             page.goto(f"https://www.amazon.fr/s?k={encoded_query}", timeout=60000)
             page.wait_for_load_state("load")
-
             time.sleep(random.uniform(3, 6))
 
-            cookies = context.cookies()
+            page.mouse.move(random.randint(100, 800), random.randint(100, 800))
+            time.sleep(random.uniform(1, 2))
+            page.mouse.wheel(0, random.randint(500, 1500))
+            time.sleep(random.uniform(2, 4))
 
-            if any(c["name"] == "aws-waf-token" for c in cookies):
-                logging.info("Amazon cookies acquired")
+            cookies = context.cookies()
+            cookie_names = {c["name"] for c in cookies}
+            missing = REQUIRED_COOKIES - cookie_names
+
+            if not missing:
+                logging.info("All required Amazon cookies acquired")
                 return cookies_to_string(cookies)
 
-            logging.warning("aws-waf-token not found")
+            logging.warning(f"Missing cookies: {missing}")
 
         except PlaywrightTimeoutError:
             logging.warning("Amazon timeout, retrying...")
@@ -117,7 +140,7 @@ def fetch_amazon_cookies(playwright, query, max_retries=5):
         time.sleep(random.uniform(3, 6))
 
     raise RuntimeError("Failed to retrieve Amazon cookies")
-    
+
 def main():
     cookie_sets = load_existing_cookies()
 
