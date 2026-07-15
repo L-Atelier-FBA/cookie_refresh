@@ -28,9 +28,7 @@ REQUIRED_COOKIES = {
     "lc-acbfr",
     "ubid-acbfr",
     "csm-hit",
-    "session-token",
-    "ad-privacy",
-    "rxc"
+    "session-token"
 }
 
 def parse_proxy(proxy_str):
